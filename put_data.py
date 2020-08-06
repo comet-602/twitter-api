@@ -11,7 +11,7 @@ import t_tok
 tok=t_tok.t_tok()
 twitter = Twitter(auth = OAuth(tok[0],tok[1],tok[2],tok[3]))
 
-statuses = twitter.statuses.user_timeline(screen_name = "@realDonaldTrump",count=300,tweet_mode='extended') #查詢資料，放入20筆資料
+statuses = twitter.statuses.user_timeline(screen_name = "@realDonaldTrump",count=10,tweet_mode='extended') #查詢資料，放入20筆資料
 
 created_at=[]
 for data in statuses:

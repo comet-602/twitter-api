@@ -15,7 +15,7 @@ def t_api():
     twitter = Twitter(auth = OAuth(tok[0],tok[1],tok[2],tok[3]))
 
     #設定爬取發文數量
-    tweets_count=15
+    tweets_count=3
 
     #設定爬取條件，人名、評論數、喜好數、內文
     statuses = twitter.statuses.user_timeline(screen_name = "@realDonaldTrump",count=tweets_count,tweet_mode='extended')
@@ -54,7 +54,6 @@ def t_api():
             if created_at[i] in t_search.time():
                 print('I have it')
             else:
-                #print('do something')
                 db_data = pymysql.connect("localhost","root","123456","twitter_1" )
                 cursor = db_data.cursor()
                 
@@ -64,12 +63,9 @@ def t_api():
                 line_notify.lineNotifyMessage(n_text)  # line notify 會推撥訊息
                 print(n_text)
                 
-                cursor.execute(sql)
-                #results = cursor.fetchall()                
+                cursor.execute(sql)          
                 db_data.commit()
                 db_data.close()
-                #print('回傳值:',df.iloc[i,0], df.iloc[i,1], df.iloc[i,2], df.iloc[i,3])
-
         return 
 
 
