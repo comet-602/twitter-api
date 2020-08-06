@@ -1,10 +1,12 @@
 from twitter import *
 
+
+# 輸入申請的twitter api key
 def t_tok():
-    twitter_tok = ["2888613727-lWpovkQ1ZCTdoWaJpmq2mqYtBFlq2KTuRPEtBFq",
-                  "U3dDhJtqPnfdfNocCof0gnLbtHE4nCbtbSqHEq1nvRKlO",
-                  "hhnuejhUZwo73HdN8R3t0kb2b",
-                  "xyf5eRkCJlgMAkFyVZ8D2z7liJci0yfcCAmEkbjayJonUdlwMD"]
+    twitter_tok = ["consumer_key",
+                  "consumer_secret",
+                  "access_token_key",
+                  "access_token_secret"]
     return twitter_tok
 
 if __name__ == '__main__':

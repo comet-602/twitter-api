@@ -1,3 +1,3 @@
 def line_tok():
-    tok="8Fcon8RmBBowc3tDgZlQNy2aAPBf6FaAuhEwC95ncxZ"
+    tok="打上自己的notify token"
     return tok
