@@ -1,7 +1,6 @@
 from confluent_kafka import Consumer, KafkaException, KafkaError
 import sys
 import time
-
 import pandas as pd
 import numpy as np
 from twitter import *
@@ -11,6 +10,10 @@ from sqlalchemy.types import CHAR,INT
 import datetime
 import t_search
 import t_tok
+
+import line_notify
+from elasticsearch import Elasticsearch
+import pytz
 
 # 用來接收從Consumer instance發出的error訊息
 def error_cb(err):
@@ -102,7 +105,8 @@ if __name__ == '__main__':
                         res = es.index(index='gcp_elk', doc_type='elk', id=es_id, body=doc)
                         time.sleep(3)
 
-    
+                    # 將更新資訊通知 line 使用者
+                    line_notify.lineNotifyMessage('ELK 更新囉')
     
     except KeyboardInterrupt as e:
         sys.stderr.write('Aborted by user\n')
